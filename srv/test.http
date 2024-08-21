@@ -1,0 +1,50 @@
+
+### Get Employee data 
+http://localhost:4004/odata/v4/Employee/EmployeeSet
+
+###get the service meta document
+http://localhost:4004/odata/v4/Employee/$metadata
+
+###Get all the Employees whose name starts with ‘S’.
+http://localhost:4004/odata/v4/Employee/EmployeeSet?$filter=startswith(nameFirst,'S')
+ 
+###Get the top 2 employees, use orderby salaryAmount.
+http://localhost:4004/odata/v4/Employee/EmployeeSet?$orderby=salaryAmount
+ 
+
+
+### CREATE an employee with salary <50000 & currency code USD.
+POST http://localhost:4004/odata/v4/Employee/EmployeeSet
+Content-Type: application/json
+ 
+{
+  "nameFirst": "shristiano",
+  "nameMiddle": "M",
+  "nameLast": "sonaldo",
+  "nameInitials": null,
+  "sex": "M",
+  "language": "E",
+  "phoneNumber": "+918810504555",
+  "email": "chris.ronaldo@gmail.com",
+  "loginName": "CHRISRL",
+  "currency_code": "USD",
+  "salaryAmount": 1000,
+  "accountNumber": "32109876",
+  "bankId": "66665555",
+  "bankName": "My Bank of London"
+}
+
+### UPDATE case
+PATCH http://localhost:4004/odata/v4/Employee/EmployeeSet/0bac82b1-d6b8-40c8-ad7d-55c672263396
+Content-Type: application/json
+ 
+{
+  "nameFirst":"hello",
+  "nameLast": "thusssss",
+  "nameInitials": null,
+  "currency_code":"USD"
+}
+
+### delete case
+DELETE http://localhost:4004/odata/v4/Employee/EmployeeSet/0bac82b1-d6b8-40c8-ad7d-55c672263396
+
